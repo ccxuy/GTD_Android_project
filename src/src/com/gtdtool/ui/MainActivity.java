@@ -1,6 +1,7 @@
 package com.gtdtool.ui;
 
-import com.example.gtdtools.R;
+import com.gtdtool.control.MainControl;
+import com.gtdtools.R;
 
 import android.os.Bundle;
 import android.app.Activity;
@@ -12,19 +13,23 @@ import android.view.View.OnClickListener;
 import android.widget.ImageButton;
 
 public class MainActivity extends Activity {
-
+	private MainControl mainControl = null;
+	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
 		
+		// Load settings
+		this.mainControl = new MainControl();
 		
 		 // TODO: Judge whether is first time to launch this application
 		 //     , if true launch introduction activity.
-		 
-		Intent intent;
-	    intent = new Intent(this, IntroActivity.class);
-	    startActivityForResult( intent, 0 );
+		if(true == mainControl.isFirstTimeLaunch){
+			Intent intent;
+		    intent = new Intent(this, IntroActivity.class);
+		    startActivityForResult( intent, 0 );
+		}
 	    
 	    // TODO: Load Main UI component
 	    setButtonListener();
@@ -53,6 +58,10 @@ public class MainActivity extends Activity {
 			public void onClick(View v) {
 				Intent reviewIntent;
 				reviewIntent = new Intent(getApplicationContext(), ReviewActivity.class);
+				Bundle mBundle = new Bundle();
+		        mBundle.putSerializable(MainControl.SER_KEY,mainControl);
+		        reviewIntent.putExtras(mBundle);
+		        
 			    startActivityForResult( reviewIntent, 2 );
 			}
 		});

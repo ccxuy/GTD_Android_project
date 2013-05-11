@@ -7,10 +7,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-import com.example.gtdtools.R;
-import com.example.gtdtools.R.id;
-import com.example.gtdtools.R.layout;
-import com.example.gtdtools.dummy.DummyContent;
+import com.gtdtool.control.MainControl;
+import com.gtdtool.object.GtdEvent;
+import com.gtdtools.R;
 
 /**
  * A fragment representing a single GtdEventFolder detail screen. This fragment
@@ -25,9 +24,9 @@ public class GtdEventFolderDetailFragment extends Fragment {
 	public static final String ARG_ITEM_ID = "item_id";
 
 	/**
-	 * The dummy content this fragment is presenting.
+	 * The GtdEvent content this fragment is presenting.
 	 */
-	private DummyContent.DummyItem mItem;
+	private GtdEvent mItem;
 
 	/**
 	 * Mandatory empty constructor for the fragment manager to instantiate the
@@ -41,27 +40,27 @@ public class GtdEventFolderDetailFragment extends Fragment {
 		super.onCreate(savedInstanceState);
 
 		if (getArguments().containsKey(ARG_ITEM_ID)) {
-			// Load the dummy content specified by the fragment
+			// Load the GtdEvent content specified by the fragment
 			// arguments. In a real-world scenario, use a Loader
 			// to load content from a content provider.
-			mItem = DummyContent.ITEM_MAP.get(getArguments().getString(
-					ARG_ITEM_ID));
+			mItem = MainControl.gtdEventsOp.events_map.get(
+					getArguments().containsKey(ARG_ITEM_ID));
 		}
 	}
 
+	/* 
+	 * TODO: Generate view of GtdEvent content here
+	 */
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
 		View rootView = inflater.inflate(
 				R.layout.fragment_gtdeventfolder_detail, container, false);
 
-		// Show the dummy content as text in a TextView.
+		// Show the content as text in a TextView.
 		if (mItem != null) {
 			((TextView) rootView.findViewById(R.id.gtdeventfolder_detail))
-					.setText(mItem.content);
-
-			((TextView) rootView.findViewById(R.id.gtdeventfolder_detail))
-					.setBackgroundColor(555555);
+					.setText(mItem.getName());
 		}
 
 		return rootView;

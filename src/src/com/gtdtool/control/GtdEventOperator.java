@@ -4,8 +4,11 @@
 package com.gtdtool.control;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import com.example.gtdtools.dummy.DummyContent.DummyItem;
 import com.gtdtool.object.GtdEvent;
 
 /**
@@ -13,7 +16,15 @@ import com.gtdtool.object.GtdEvent;
  *
  */
 public class GtdEventOperator {
-	List<GtdEvent> events;
+	/**
+	 * An array of GtdEvent items.
+	 */
+	public List<GtdEvent> events = new ArrayList<GtdEvent>();
+
+	/**
+	 * A map of GtdEvent items, by ID.
+	 */
+	public Map<String, GtdEvent> events_map = new HashMap<String, GtdEvent>();
 
 	/**
 	 * Default
@@ -50,10 +61,11 @@ public class GtdEventOperator {
 	}
 	
 	/**
-	 * TODO
+	 * @param item
 	 */
-	public void addGtdEvents(){
-		
+	public void addGtdEvents(GtdEvent item){
+		this.events.add(item);
+		this.events_map.put(item.getId(), item);
 	}
 	
 
@@ -69,6 +81,17 @@ public class GtdEventOperator {
 	 * TODO
 	 */
 	public void deleteAllGtdEvents(){
+		
+	}
+
+	/**
+	 * CLEANME
+	 */
+	public void loadDefaultGtdEvents() {
+		addGtdEvents(new GtdEvent());
+		addGtdEvents(new GtdEvent());
+		addGtdEvents(new GtdEvent());
+		addGtdEvents(new GtdEvent());
 		
 	}
 

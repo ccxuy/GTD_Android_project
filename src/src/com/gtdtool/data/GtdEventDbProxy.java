@@ -40,8 +40,10 @@ public class GtdEventDbProxy {
 
 			PrintWriter outfile= new PrintWriter( new FileWriter(mySDFileName) );
 			for(GtdEvent si : sil){
+				outfile.println(si.getId());
 				outfile.println(si.getName());
 				outfile.println(si.getEventType().toString());
+				outfile.println(si.getBookmark());
 			}
 			outfile.flush();
 			outfile.close();
@@ -66,14 +68,16 @@ public class GtdEventDbProxy {
 			try {
 				File file = new File(mySDFileName);
 				
-				String str1 = "",str2="";	
+				String str1 = "",str2="",str3="",str4="";	
 				InputStream is = new FileInputStream(file);
 				BufferedReader reader = new BufferedReader(
 						                    new InputStreamReader(is));
 				if (is!=null) {							
 					while ( null!=(str1=reader.readLine())
-							&& null!=(str2=reader.readLine())) {	
-						songList.add(new GtdEvent(str1, str2));
+							&& null!=(str2=reader.readLine())
+							&& null!=(str3=reader.readLine())
+							&& null!=(str4=reader.readLine())) {	
+						songList.add(new GtdEvent(str1, str2, str3, str4));
 					}				
 				}		
 				is.close();

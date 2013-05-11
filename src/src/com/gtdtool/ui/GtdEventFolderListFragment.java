@@ -4,10 +4,11 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import com.example.gtdtools.dummy.DummyContent;
+import com.gtdtool.control.MainControl;
+import com.gtdtool.object.GtdEvent;
+import com.gtdtools.R;
 
 /**
  * A list fragment representing a list of GtdEventFolders. This fragment also
@@ -71,9 +72,9 @@ public class GtdEventFolderListFragment extends ListFragment {
 		super.onCreate(savedInstanceState);
 
 		// TODO: replace with a real list adapter.
-		setListAdapter(new ArrayAdapter<DummyContent.DummyItem>(getActivity(),
-				android.R.layout.simple_list_item_activated_1,
-				android.R.id.text1, DummyContent.ITEMS));
+		setListAdapter(new GtdEventsContentArrayAdapter<GtdEvent>(getActivity()
+				,R.layout.gtdevent_item
+				, MainControl.gtdEventsOp.getEvents()));
 	}
 
 	@Override
@@ -116,7 +117,7 @@ public class GtdEventFolderListFragment extends ListFragment {
 
 		// Notify the active callbacks interface (the activity, if the
 		// fragment is attached to one) that an item has been selected.
-		mCallbacks.onItemSelected(DummyContent.ITEMS.get(position).id);
+		mCallbacks.onItemSelected(MainControl.gtdEventsOp.events.get(position).getId());
 	}
 
 	@Override

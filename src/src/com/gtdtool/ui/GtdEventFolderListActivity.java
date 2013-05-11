@@ -1,8 +1,10 @@
 package com.gtdtool.ui;
 
-import com.example.gtdtools.R;
-import com.example.gtdtools.R.id;
-import com.example.gtdtools.R.layout;
+import com.gtdtool.control.AppSetting;
+import com.gtdtool.control.MainControl;
+import com.gtdtools.R;
+import com.gtdtools.R.id;
+import com.gtdtools.R.layout;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -28,6 +30,7 @@ import android.view.MenuItem;
  */
 public class GtdEventFolderListActivity extends FragmentActivity implements
 		GtdEventFolderListFragment.Callbacks {
+	private MainControl mainControl = null;
 
 	/**
 	 * Whether or not the activity is in two-pane mode, i.e. running on a tablet
@@ -41,6 +44,10 @@ public class GtdEventFolderListActivity extends FragmentActivity implements
 		setContentView(R.layout.activity_gtdeventfolder_list);
 		// Show the Up button in the action bar.
 		getActionBar().setDisplayHomeAsUpEnabled(true);
+		
+		// Get information from previous activity
+		//CLEANME: change to static
+		this.mainControl = (MainControl) getIntent().getSerializableExtra(MainControl.SER_KEY);
 
 		if (findViewById(R.id.gtdeventfolder_detail_container) != null) {
 			// The detail container view will be present only in the
