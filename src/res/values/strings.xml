@@ -4,5 +4,9 @@
     <string name="app_name">GTD Tools</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
+    <string name="title_gtdeventfolder_list">GtdEventFolders</string>
+    <string name="title_gtdeventfolder_detail">GtdEventFolder Detail</string>
+    <string name="title_activity_intro">IntroActivity</string>
+    <string name="title_activity_review">ReviewActivity</string>
 
 </resources>
