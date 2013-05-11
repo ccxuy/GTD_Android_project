@@ -4,9 +4,11 @@ public class GtdEvent {
 	String id = "";
 	String name = "";
 	EventType eventType;
+	EventStatus eventStatus;
 	String bookmark = "";
-	
+
 	public enum EventType{Simple}
+	public enum EventStatus{NORMAL, URGENT, FINISHED}
 
 	/**
 	 * Constructor for a new GtdEvent
@@ -25,13 +27,16 @@ public class GtdEvent {
 	 * @param id
 	 * @param name
 	 * @param eventType
+	 * @param eventStatus
 	 * @param bookmark
 	 */
-	public GtdEvent(String id, String name, EventType eventType, String bookmark) {
+	public GtdEvent(String id, String name, String eventType,
+			String eventStatus, String bookmark) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.eventType = eventType;
+		this.eventType = EventType.valueOf(eventType);
+		this.eventStatus = EventStatus.valueOf(eventStatus);
 		this.bookmark = bookmark;
 	}
 
@@ -40,13 +45,16 @@ public class GtdEvent {
 	 * @param id
 	 * @param name
 	 * @param eventType
+	 * @param eventStatus
 	 * @param bookmark
 	 */
-	public GtdEvent(String id, String name, String eventType, String bookmark) {
+	public GtdEvent(String id, String name, EventType eventType,
+			EventStatus eventStatus, String bookmark) {
 		super();
 		this.id = id;
 		this.name = name;
-		this.eventType = EventType.valueOf(eventType);
+		this.eventType = eventType;
+		this.eventStatus = eventStatus;
 		this.bookmark = bookmark;
 	}
 
@@ -99,6 +107,20 @@ public class GtdEvent {
 	 */
 	public void setEventType(EventType eventType) {
 		this.eventType = eventType;
+	}
+
+	/**
+	 * @return the eventStatus
+	 */
+	public EventStatus getEventStatus() {
+		return eventStatus;
+	}
+
+	/**
+	 * @param eventStatus the eventStatus to set
+	 */
+	public void setEventStatus(EventStatus eventStatus) {
+		this.eventStatus = eventStatus;
 	}
 
 	/**

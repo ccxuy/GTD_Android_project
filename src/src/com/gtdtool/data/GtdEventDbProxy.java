@@ -29,6 +29,9 @@ public class GtdEventDbProxy {
 	final static String SONG_LIST_TXT_FILENAME = "gtdEvent_list.txt";
 	
 
+	/**
+	 * @param sil
+	 */
 	private static void saveAllGtdEventItemViaTxt(List<GtdEvent> sil){
 		String mySDFileName = dataPath+"/"+SONG_LIST_TXT_FILENAME;
 		try {	
@@ -43,6 +46,7 @@ public class GtdEventDbProxy {
 				outfile.println(si.getId());
 				outfile.println(si.getName());
 				outfile.println(si.getEventType().toString());
+				outfile.println(si.getEventStatus().toString());
 				outfile.println(si.getBookmark());
 			}
 			outfile.flush();
@@ -68,7 +72,7 @@ public class GtdEventDbProxy {
 			try {
 				File file = new File(mySDFileName);
 				
-				String str1 = "",str2="",str3="",str4="";	
+				String str1 = "",str2="",str3="",str4="",str5="";	
 				InputStream is = new FileInputStream(file);
 				BufferedReader reader = new BufferedReader(
 						                    new InputStreamReader(is));
@@ -76,8 +80,9 @@ public class GtdEventDbProxy {
 					while ( null!=(str1=reader.readLine())
 							&& null!=(str2=reader.readLine())
 							&& null!=(str3=reader.readLine())
-							&& null!=(str4=reader.readLine())) {	
-						songList.add(new GtdEvent(str1, str2, str3, str4));
+							&& null!=(str4=reader.readLine())
+							&& null!=(str5=reader.readLine())) {	
+						songList.add(new GtdEvent(str1, str2, str3, str4, str5));
 					}				
 				}		
 				is.close();
@@ -96,7 +101,20 @@ public class GtdEventDbProxy {
 		return songList;
 	}
 
+	/**
+	 * TODO: use database instead of txt
+	 * @return
+	 */
 	public static List<GtdEvent> loadAllGtdEventItem() {
 		return loadAllGtdEventItemViaTxt();
+	}
+	
+	
+	/**
+	 * TODO: use database instead of txt
+	 * @return
+	 */
+	public static void saveAllGtdEventItem(List<GtdEvent> el) {
+		saveAllGtdEventItemViaTxt(el);
 	}
 }
