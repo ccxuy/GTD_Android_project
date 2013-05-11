@@ -23,6 +23,14 @@ public class GtdEventOperator {
 		this.events = new ArrayList<GtdEvent>();
 	}
 	
+	/**
+	 * @param events
+	 */
+	public GtdEventOperator(List<GtdEvent> events) {
+		super();
+		this.events = events;
+	}
+
 	public List<GtdEvent> getEvents() {
 		return events;
 	}

@@ -50,6 +50,14 @@ public class GtdEvent {
 	public void setEventType(EventType eventType) {
 		this.eventType = eventType;
 	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "GtdEvent [name=" + name + ", eventType=" + eventType + "]";
+	}
 	
 	
 

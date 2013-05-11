@@ -25,11 +25,11 @@ import android.util.Log;
  *
  */
 public class GtdEventDbProxy {
-	String dataPath = Environment.getExternalStorageDirectory().getAbsolutePath();
-	final String SONG_LIST_TXT_FILENAME = "gtdEvent_list.txt";
+	static String dataPath = Environment.getExternalStorageDirectory().getAbsolutePath();
+	final static String SONG_LIST_TXT_FILENAME = "gtdEvent_list.txt";
 	
 
-	public void saveAllGtdEventItemViaTxt(List<GtdEvent> sil){
+	private static void saveAllGtdEventItemViaTxt(List<GtdEvent> sil){
 		String mySDFileName = dataPath+"/"+SONG_LIST_TXT_FILENAME;
 		try {	
 	
@@ -53,7 +53,7 @@ public class GtdEventDbProxy {
 		}
 	}
 	
-	public List<GtdEvent> loadAllGtdEventItemViaTxt(){
+	private static List<GtdEvent> loadAllGtdEventItemViaTxt(){
 
 		String mySDFileName = dataPath+"/"+SONG_LIST_TXT_FILENAME;	
 		String state = Environment.getExternalStorageState();
@@ -90,5 +90,9 @@ public class GtdEventDbProxy {
 			}
 		}
 		return songList;
+	}
+
+	public static List<GtdEvent> loadAllGtdEventItem() {
+		return loadAllGtdEventItemViaTxt();
 	}
 }
