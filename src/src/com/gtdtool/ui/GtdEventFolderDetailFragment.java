@@ -59,6 +59,9 @@ public class GtdEventFolderDetailFragment extends Fragment {
 		if (mItem != null) {
 			((TextView) rootView.findViewById(R.id.gtdeventfolder_detail))
 					.setText(mItem.content);
+
+			((TextView) rootView.findViewById(R.id.gtdeventfolder_detail))
+					.setBackgroundColor(555555);
 		}
 
 		return rootView;

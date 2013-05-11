@@ -1,7 +1,6 @@
 package com.gtdtool.ui;
 
 import com.example.gtdtools.R;
-import com.example.gtdtools.ReviewActivity;
 
 import android.os.Bundle;
 import android.app.Activity;
@@ -44,7 +43,7 @@ public class MainActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				Intent eventsIntent;
-				eventsIntent = new Intent(getApplicationContext(), GtdEventFolderDetailActivity.class);
+				eventsIntent = new Intent(getApplicationContext(), GtdEventFolderListActivity.class);
 			    startActivityForResult( eventsIntent, 1 );
 			}
 		});
