@@ -5,8 +5,12 @@
     android:versionName="1.0" >
 
     <uses-sdk
-        android:minSdkVersion="8"
+        android:minSdkVersion="11"
         android:targetSdkVersion="17" />
+    <!-- 在SDCard中创建与删除文件权限 -->
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <!-- 往SDCard写入数据权限 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -14,13 +18,46 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.example.gtdtools.MainActivity"
+            android:name="com.gtdtool.ui.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+        <activity
+            android:name="com.gtdtool.ui.LoginActivity"
+            android:label="@string/title_activity_login"
+            android:windowSoftInputMode="adjustResize|stateVisible" >
+        </activity>
+        <activity
+            android:name="com.gtdtool.ui.SettingsActivity"
+            android:label="@string/title_activity_settings" >
+        </activity>
+        <activity
+            android:name="com.gtdtool.ui.GtdEventFolderListActivity"
+            android:label="@string/title_gtdeventfolder_list"
+            android:parentActivityName="com.gtdtool.ui.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.gtdtool.ui.MainActivity" />
+        </activity>
+        <activity
+            android:name="com.gtdtool.ui.GtdEventFolderDetailActivity"
+            android:label="@string/title_gtdeventfolder_detail"
+            android:parentActivityName=".GtdEvcom.gtdtool.ui.GtdEventFolderListActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".GtdEventFolderListActivity" />
+        </activity>
+        <activity
+            android:name="com.gtdtool.ui.IntroActivity"
+            android:label="@string/title_activity_intro" >
+        </activity>
+        <activity
+            android:name="com.example.gtdtools.ReviewActivity"
+            android:label="@string/title_activity_review" >
         </activity>
     </application>
 
