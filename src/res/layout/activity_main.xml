@@ -9,8 +9,27 @@
     tools:context=".MainActivity" >
 
     <TextView
+        android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/hello_world" />
+
+    <ImageButton
+        android:id="@+id/main_GtdEvents_imageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_marginBottom="25dp"
+        android:src="@drawable/ic_launcher" />
+
+    <ImageButton
+        android:id="@+id/main_review_imageButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignTop="@+id/main_GtdEvents_imageButton"
+        android:layout_marginRight="22dp"
+        android:src="@drawable/ic_launcher" />
 
 </RelativeLayout>

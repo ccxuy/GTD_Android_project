@@ -55,6 +55,10 @@
             android:name="com.gtdtool.ui.IntroActivity"
             android:label="@string/title_activity_intro" >
         </activity>
+        <activity
+            android:name="com.example.gtdtools.ReviewActivity"
+            android:label="@string/title_activity_review" >
+        </activity>
     </application>
 
 </manifest>

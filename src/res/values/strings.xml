@@ -7,5 +7,6 @@
     <string name="title_gtdeventfolder_list">GtdEventFolders</string>
     <string name="title_gtdeventfolder_detail">GtdEventFolder Detail</string>
     <string name="title_activity_intro">IntroActivity</string>
+    <string name="title_activity_review">ReviewActivity</string>
 
 </resources>

@@ -25,7 +25,8 @@ public class MainControl {
 	}
 
 	/**
-	 * 
+	 * loadControlObject
+	 * if any new things added, initialize here.
 	 */
 	private void loadControlObject() {
 		//If no setting found, means first time to lauch
