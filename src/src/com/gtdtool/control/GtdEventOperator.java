@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.gtdtool.objectcontrol;
+package com.gtdtool.control;
 
 import java.util.ArrayList;
 import java.util.List;

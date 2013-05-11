@@ -25,6 +25,16 @@ public class GtdEvent {
 		this.eventType = eventType;
 	}
 
+	/**
+	 * @param name
+	 * @param eventType
+	 */
+	public GtdEvent(String name, String eventType) {
+		super();
+		this.name = name;
+		this.eventType = EventType.valueOf(eventType);
+	}
+
 	public String getName() {
 		return name;
 	}
