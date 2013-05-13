@@ -44,6 +44,14 @@
                 android:value="com.gtdtool.ui.MainActivity" />
         </activity>
         <activity
+            android:name="com.gtdtool.ui.GtdEventFolderListViewOnlyActivity"
+            android:label="@string/title_gtdeventfolder_list"
+            android:parentActivityName="com.gtdtool.ui.MainActivity" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.gtdtool.ui.MainActivity" />
+        </activity>
+        <activity
             android:name="com.gtdtool.ui.GtdEventFolderDetailActivity"
             android:label="@string/title_gtdeventfolder_detail"
             android:parentActivityName=".GtdEvcom.gtdtool.ui.GtdEventFolderListActivity" >

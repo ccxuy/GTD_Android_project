@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.commonsware.cwac.tlv.TouchListView xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tlv="http://schemas.android.com/apk/res/com.gtdtool"
+	android:id="@android:id/list"
+    android:name="com.gtdtool.ui.GtdEventFolderListView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginLeft="16dp"
+    android:layout_marginRight="16dp"
+	android:drawSelectorOnTop="false"
+	tlv:normal_height="64dip"
+	tlv:expanded_height="128dip"
+	tlv:grabber="@+id/bookmark_default"
+	tlv:remove_mode="slideRight"/>
