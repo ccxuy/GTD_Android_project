@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.gtdtool.control.MainControl;
 import com.gtdtool.object.GtdEvent;
-import com.gtdtools.R;
+import com.gtdtool.R;
 
 /**
  * A fragment representing a single GtdEventFolder detail screen. This fragment

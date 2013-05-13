@@ -1,10 +1,6 @@
 package com.gtdtool.ui;
 
-import com.gtdtools.R;
-import com.gtdtools.R.id;
-import com.gtdtools.R.layout;
-import com.gtdtools.R.menu;
-import com.gtdtools.R.string;
+import com.gtdtool.R;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;

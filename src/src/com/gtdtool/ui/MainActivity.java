@@ -1,7 +1,7 @@
 package com.gtdtool.ui;
 
 import com.gtdtool.control.MainControl;
-import com.gtdtools.R;
+import com.gtdtool.R;
 
 import android.os.Bundle;
 import android.app.Activity;

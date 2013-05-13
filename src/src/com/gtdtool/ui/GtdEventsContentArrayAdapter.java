@@ -6,7 +6,7 @@ package com.gtdtool.ui;
 import java.util.List;
 
 import com.gtdtool.object.GtdEvent;
-import com.gtdtools.R;
+import com.gtdtool.R;
 
 import android.content.Context;
 import android.content.res.Resources.NotFoundException;
@@ -77,7 +77,7 @@ public class GtdEventsContentArrayAdapter<T> extends ArrayAdapter<GtdEvent> {
 				coverImage.setImageDrawable(mContext.getResources().getDrawable(imgId));
 			} catch (NotFoundException e) {
 				coverImage.setImageDrawable(mContext.getResources().getDrawable(defaultImgId));
-				Log.d("GtdEventsContentArrayAdapter", "Image Uri not found. imgId="+imgId);
+//				Log.d("GtdEventsContentArrayAdapter", "Image Uri not found. imgId="+imgId);
 			}
         } 
 		return view;

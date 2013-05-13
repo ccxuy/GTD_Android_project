@@ -6,9 +6,11 @@ import android.support.v4.app.ListFragment;
 import android.view.View;
 import android.widget.ListView;
 
+import com.commonsware.cwac.tlv.TouchListView;
 import com.gtdtool.control.MainControl;
 import com.gtdtool.object.GtdEvent;
-import com.gtdtools.R;
+import com.gtdtool.ui.templete.TouchListFragment;
+import com.gtdtool.R;
 
 /**
  * A list fragment representing a list of GtdEventFolders. This fragment also
@@ -19,7 +21,9 @@ import com.gtdtools.R;
  * Activities containing this fragment MUST implement the {@link Callbacks}
  * interface.
  */
-public class GtdEventFolderListFragment extends ListFragment {
+public class GtdEventFolderListFragment extends TouchListFragment {
+	
+	private GtdEventsContentArrayAdapter<GtdEvent> adapter=null;
 
 	/**
 	 * The serialization (saved instance state) Bundle key representing the
@@ -71,10 +75,12 @@ public class GtdEventFolderListFragment extends ListFragment {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 
-		// TODO: replace with a real list adapter.
-		setListAdapter(new GtdEventsContentArrayAdapter<GtdEvent>(getActivity()
+		// DONE: replace with a real list adapter.
+		adapter = new GtdEventsContentArrayAdapter<GtdEvent>(getActivity()
 				,R.layout.gtdevent_item
-				, MainControl.gtdEventsOp.getEvents()));
+				, MainControl.gtdEventsOp.getEvents());
+		setListAdapter(adapter);
+		
 	}
 
 	@Override
@@ -87,6 +93,11 @@ public class GtdEventFolderListFragment extends ListFragment {
 			setActivatedPosition(savedInstanceState
 					.getInt(STATE_ACTIVATED_POSITION));
 		}
+		
+
+		TouchListView tlv=(TouchListView)getListView();
+		tlv.setDropListener(onDrop);
+		tlv.setRemoveListener(onRemove);
 	}
 
 	@Override
@@ -150,4 +161,21 @@ public class GtdEventFolderListFragment extends ListFragment {
 
 		mActivatedPosition = position;
 	}
+	
+	private TouchListView.DropListener onDrop=new TouchListView.DropListener() {
+		@Override
+		public void drop(int from, int to) {
+			GtdEvent item = adapter.getItem(from);
+
+			adapter.remove(item);
+			adapter.insert(item, to);
+		}
+	};
+	
+	private TouchListView.RemoveListener onRemove=new TouchListView.RemoveListener() {
+		@Override
+		public void remove(int which) {
+				adapter.remove(adapter.getItem(which));
+		}
+	};
 }

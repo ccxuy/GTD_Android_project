@@ -21,7 +21,7 @@
         android:layout_marginLeft="5dp"
         android:layout_marginTop="5dp"
         android:layout_toRightOf="@+id/songItem_cover_imageView"
-        android:text="Unknown song title"
+        android:text="Unknown title"
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
@@ -40,16 +40,15 @@
         android:layout_alignParentRight="true"
         android:layout_alignTop="@+id/songItem_title_textView"
         android:layout_marginRight="14dp"
-        android:text="00:00"
+        android:text=" "
         android:textAppearance="?android:attr/textAppearanceSmall"
         android:textColor="#66ccff" />
 
-    <ImageView
-        android:id="@+id/imageView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageView android:id="@+id/grabber"
         android:layout_alignParentRight="true"
         android:layout_centerVertical="true"
-        android:src="@drawable/arrow" />
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+		android:src="@drawable/grabber"/>
 
 </RelativeLayout>
