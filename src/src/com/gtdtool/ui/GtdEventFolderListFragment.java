@@ -3,13 +3,12 @@ package com.gtdtool.ui;
 import android.app.Activity;
 import android.os.Bundle;
 import android.support.v4.app.ListFragment;
+import android.util.Log;
 import android.view.View;
 import android.widget.ListView;
 
-import com.commonsware.cwac.tlv.TouchListView;
 import com.gtdtool.control.MainControl;
 import com.gtdtool.object.GtdEvent;
-import com.gtdtool.ui.templete.TouchListFragment;
 import com.gtdtool.R;
 
 /**
@@ -21,7 +20,7 @@ import com.gtdtool.R;
  * Activities containing this fragment MUST implement the {@link Callbacks}
  * interface.
  */
-public class GtdEventFolderListFragment extends TouchListFragment {
+public class GtdEventFolderListFragment extends ListFragment {
 	
 	private GtdEventsContentArrayAdapter<GtdEvent> adapter=null;
 
@@ -78,7 +77,7 @@ public class GtdEventFolderListFragment extends TouchListFragment {
 		// DONE: replace with a real list adapter.
 		adapter = new GtdEventsContentArrayAdapter<GtdEvent>(getActivity()
 				,R.layout.gtdevent_item
-				, MainControl.gtdEventsOp.getEvents());
+				, MainControl.gtdEventsOp.getEvents(),R.id.grabber);
 		setListAdapter(adapter);
 		
 	}
@@ -94,10 +93,6 @@ public class GtdEventFolderListFragment extends TouchListFragment {
 					.getInt(STATE_ACTIVATED_POSITION));
 		}
 		
-
-		TouchListView tlv=(TouchListView)getListView();
-		tlv.setDropListener(onDrop);
-		tlv.setRemoveListener(onRemove);
 	}
 
 	@Override
@@ -161,21 +156,4 @@ public class GtdEventFolderListFragment extends TouchListFragment {
 
 		mActivatedPosition = position;
 	}
-	
-	private TouchListView.DropListener onDrop=new TouchListView.DropListener() {
-		@Override
-		public void drop(int from, int to) {
-			GtdEvent item = adapter.getItem(from);
-
-			adapter.remove(item);
-			adapter.insert(item, to);
-		}
-	};
-	
-	private TouchListView.RemoveListener onRemove=new TouchListView.RemoveListener() {
-		@Override
-		public void remove(int which) {
-				adapter.remove(adapter.getItem(which));
-		}
-	};
 }

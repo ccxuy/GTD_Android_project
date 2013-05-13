@@ -88,10 +88,17 @@ public class GtdEventOperator {
 	 * CLEANME
 	 */
 	public void loadDefaultGtdEvents() {
-		addGtdEvents(new GtdEvent());
-		addGtdEvents(new GtdEvent());
-		addGtdEvents(new GtdEvent());
-		addGtdEvents(new GtdEvent());
+		GtdEvent ge = new GtdEvent();
+		addGtdEvents(ge);
+		ge = new GtdEvent();
+		ge.setName("1");
+		addGtdEvents(ge);
+		ge = new GtdEvent();
+		ge.setName("2");
+		addGtdEvents(ge);
+		ge = new GtdEvent();
+		ge.setName("3");
+		addGtdEvents(ge);
 		
 	}
 

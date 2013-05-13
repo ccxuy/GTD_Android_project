@@ -4,7 +4,7 @@
     android:layout_height="match_parent" >
 
     <ImageView
-        android:id="@+id/songItem_cover_imageView"
+        android:id="@+id/gtdevent_cover_imageView"
         android:layout_width="72dp"
         android:layout_height="72dp"
         android:layout_alignParentLeft="true"
@@ -15,30 +15,30 @@
         android:src="@drawable/bookmark_default" />
 
     <TextView
-        android:id="@+id/songItem_title_textView"
+        android:id="@+id/gtdevent_title_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="5dp"
-        android:layout_toRightOf="@+id/songItem_cover_imageView"
-        android:text="Unknown title"
+        android:layout_toRightOf="@+id/gtdevent_cover_imageView"
+        android:text=" "
         android:textAppearance="?android:attr/textAppearanceMedium" />
 
     <TextView
-        android:id="@+id/songItem_author_textView"
+        android:id="@+id/gtdevent_author_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/songItem_title_textView"
-        android:layout_alignLeft="@+id/songItem_title_textView"
-        android:text="Unknown author"
+        android:layout_below="@+id/gtdevent_title_textView"
+        android:layout_alignLeft="@+id/gtdevent_title_textView"
+        android:text=" "
         android:textAppearance="?android:attr/textAppearanceSmall" />
 
     <TextView
-        android:id="@+id/songItem_duration_textView"
+        android:id="@+id/gtdevent_duration_textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:layout_alignTop="@+id/songItem_title_textView"
+        android:layout_alignTop="@+id/gtdevent_title_textView"
         android:layout_marginRight="14dp"
         android:text=" "
         android:textAppearance="?android:attr/textAppearanceSmall"

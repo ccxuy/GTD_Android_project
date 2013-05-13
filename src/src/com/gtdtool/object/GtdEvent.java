@@ -19,6 +19,7 @@ public class GtdEvent {
 		this.setGeneratedId();
 		this.name = "No Name";
 		this.eventType = EventType.Simple;
+		this.eventStatus = EventStatus.NORMAL;
 		this.bookmark = "default_bookmark";
 	}
 

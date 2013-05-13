@@ -49,7 +49,7 @@ public class MainActivity extends Activity {
 			@Override
 			public void onClick(View v) {
 				Intent eventsIntent;
-				eventsIntent = new Intent(getApplicationContext(), GtdEventFolderListActivity.class);
+				eventsIntent = new Intent(getApplicationContext(), GtdEventFolderListViewOnlyActivity.class);
 			    startActivityForResult( eventsIntent, 1 );
 			}
 		});

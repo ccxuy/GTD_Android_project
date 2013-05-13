@@ -2,6 +2,8 @@ package com.gtdtool.ui;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 import android.app.ListActivity;
 import android.os.Bundle;
@@ -11,51 +13,42 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
-import com.commonsware.cwac.tlv.TouchListView;
 import com.gtdtool.R;
 import com.gtdtool.control.MainControl;
 import com.gtdtool.object.GtdEvent;
+import com.terlici.dragndroplist.DragNDropListView;
+import com.terlici.dragndroplist.DragNDropSimpleAdapter;
 
 public class GtdEventFolderListViewOnlyActivity extends ListActivity {
-	private static String[] items={"lorem", "ipsum", "dolor", "sit", "amet",
-																	"consectetuer", "adipiscing", "elit", "morbi", "vel",
-																	"ligula", "vitae", "arcu", "aliquet", "mollis",
-																	"etiam", "vel", "erat", "placerat", "ante",
-																	"porttitor", "sodales", "pellentesque", "augue", "purus"};
 	private GtdEventsContentArrayAdapter<GtdEvent> adapter=null;
-	private ArrayList<String> array=new ArrayList<String>(Arrays.asList(items));
 
-	
-	private TouchListView.DropListener onDrop=new TouchListView.DropListener() {
-		@Override
-		public void drop(int from, int to) {
-				GtdEvent item=adapter.getItem(from);
-				
-				adapter.remove(item);
-				adapter.insert(item, to);
-		}
-	};
-	
-	private TouchListView.RemoveListener onRemove=new TouchListView.RemoveListener() {
-		@Override
-		public void remove(int which) {
-				adapter.remove(adapter.getItem(which));
-		}
-	};
 	
 	@Override
 	public void onCreate(Bundle icicle) {
 		super.onCreate(icicle);
 		setContentView(R.layout.activity_gtdeventfolder_listview);
-
-		TouchListView tlv=(TouchListView)getListView();
-		adapter = new GtdEventsContentArrayAdapter<GtdEvent>(getApplication()
-				,R.layout.gtdevent_item
-				, MainControl.gtdEventsOp.getEvents());
-		setListAdapter(adapter);
 		
-		tlv.setDropListener(onDrop);
-		tlv.setRemoveListener(onRemove);
+		ArrayList<Map<String, Object>> items = new ArrayList<Map<String, Object>>();
+		for(GtdEvent ge:MainControl.gtdEventsOp.events){
+			HashMap<String, Object> item = new HashMap<String, Object>();
+			item.put("name", ge.getName());
+			item.put("status", ge.getEventStatus().toString());
+			item.put("_id", ge.getId());
+			
+			items.add(item);
+		}
+
+		DragNDropListView tlv=(DragNDropListView)getListView();
+//		adapter = new GtdEventsContentArrayAdapter<GtdEvent>(getApplication()
+//				,R.layout.gtdevent_item
+//				, MainControl.gtdEventsOp.getEvents(),R.id.grabber);
+		tlv.setDragNDropAdapter(new DragNDropSimpleAdapter(this,
+				 items,
+				 R.layout.gtdevent_item,
+				 new String[]{"name","status"},
+				 new int[]{R.id.gtdevent_title_textView,R.id.gtdevent_duration_textView},
+				 R.id.grabber));
+		
 	}
 
 }

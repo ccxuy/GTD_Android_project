@@ -1,6 +1,5 @@
 package com.gtdtool.ui;
 
-import com.commonsware.cwac.tlv.TouchListView;
 import com.gtdtool.control.MainControl;
 import com.gtdtool.R;
 import android.content.Intent;
