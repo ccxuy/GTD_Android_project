@@ -1,0 +1,16 @@
+int attr dragndrop_background 0x7f010003
+int attr expanded_height 0x7f010001
+int attr grabber 0x7f010002
+int attr normal_height 0x7f010000
+int attr remove_mode 0x7f010004
+int id fling 0x7f020001
+int id none 0x7f020000
+int id slide 0x7f020002
+int id slideLeft 0x7f020004
+int id slideRight 0x7f020003
+int[] styleable TouchListView { 0x7f010000, 0x7f010001, 0x7f010002, 0x7f010003, 0x7f010004 }
+int styleable TouchListView_dragndrop_background 3
+int styleable TouchListView_expanded_height 1
+int styleable TouchListView_grabber 2
+int styleable TouchListView_normal_height 0
+int styleable TouchListView_remove_mode 4
