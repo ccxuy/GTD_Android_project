@@ -26,6 +26,7 @@ public class MainActivity extends Activity {
 		 // TODO: Judge whether is first time to launch this application
 		 //     , if true launch introduction activity.
 		if(true == mainControl.isFirstTimeLaunch){
+		    mainControl.isFirstTimeLaunch = false;
 			Intent intent;
 		    intent = new Intent(this, IntroActivity.class);
 		    startActivityForResult( intent, 0 );

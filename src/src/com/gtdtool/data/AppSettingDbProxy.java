@@ -26,13 +26,13 @@ import android.util.Log;
  */
 public class AppSettingDbProxy {
 	static String dataPath = Environment.getExternalStorageDirectory().getAbsolutePath();
-	final static String SONG_LIST_TXT_FILENAME = "gtdEvent_list.txt";
+	final static String SONG_LIST_TXT_FILENAME = "appsetting.txt";
 	
 
 	/**
 	 * @param sil
 	 */
-	private static void saveAllGtdEventItemViaTxt(List<GtdEvent> sil){
+	private static void saveAllViaTxt(String si){
 		String mySDFileName = dataPath+"/"+SONG_LIST_TXT_FILENAME;
 		try {	
 	
@@ -42,12 +42,8 @@ public class AppSettingDbProxy {
 	    	}
 
 			PrintWriter outfile= new PrintWriter( new FileWriter(mySDFileName) );
-			for(GtdEvent si : sil){
-				outfile.println(si.getId());
-				outfile.println(si.getName());
-				outfile.println(si.getEventType().toString());
-				outfile.println(si.getEventStatus().toString());
-				outfile.println(si.getBookmark());
+			if(true){
+				outfile.println(si);
 			}
 			outfile.flush();
 			outfile.close();
@@ -59,30 +55,25 @@ public class AppSettingDbProxy {
 		}
 	}
 	
-	private static List<GtdEvent> loadAllGtdEventItemViaTxt(){
+	private static String loadAllViaTxt(){
 
 		String mySDFileName = dataPath+"/"+SONG_LIST_TXT_FILENAME;	
 		String state = Environment.getExternalStorageState();
 
 		//Reset Song list
 		List<GtdEvent> songList = new ArrayList<GtdEvent>();
+		String str1 = "";	
 		
 		if (Environment.MEDIA_MOUNTED.equals(state)) {
 		    // We can read and write the media
 			try {
 				File file = new File(mySDFileName);
 				
-				String str1 = "",str2="",str3="",str4="",str5="";	
 				InputStream is = new FileInputStream(file);
 				BufferedReader reader = new BufferedReader(
 						                    new InputStreamReader(is));
 				if (is!=null) {							
-					while ( null!=(str1=reader.readLine())
-							&& null!=(str2=reader.readLine())
-							&& null!=(str3=reader.readLine())
-							&& null!=(str4=reader.readLine())
-							&& null!=(str5=reader.readLine())) {	
-						songList.add(new GtdEvent(str1, str2, str3, str4, str5));
+					while ( null!=(str1=reader.readLine())) {
 					}				
 				}		
 				is.close();
@@ -98,15 +89,15 @@ public class AppSettingDbProxy {
 				e.printStackTrace();
 			}
 		}
-		return songList;
+		return str1;
 	}
 
 	/**
 	 * TODO: use database instead of txt
 	 * @return
 	 */
-	public static List<GtdEvent> loadAllGtdEventItem() {
-		return loadAllGtdEventItemViaTxt();
+	public static String loadAll() {
+		return loadAllViaTxt();
 	}
 	
 	
@@ -114,7 +105,7 @@ public class AppSettingDbProxy {
 	 * TODO: use database instead of txt
 	 * @return
 	 */
-	public static void saveAllGtdEventItem(List<GtdEvent> el) {
-		saveAllGtdEventItemViaTxt(el);
+	public static void saveAll(String s) {
+		saveAllViaTxt(s);
 	}
 }
