@@ -62,7 +62,7 @@ public class AppSettingDbProxy {
 
 		//Reset Song list
 		List<GtdEvent> songList = new ArrayList<GtdEvent>();
-		String str1 = "";	
+		String res = "", str1 = "";	
 		
 		if (Environment.MEDIA_MOUNTED.equals(state)) {
 		    // We can read and write the media
@@ -74,11 +74,12 @@ public class AppSettingDbProxy {
 						                    new InputStreamReader(is));
 				if (is!=null) {							
 					while ( null!=(str1=reader.readLine())) {
+						res=str1;
 					}				
 				}		
 				is.close();
 
-				Log.d("GtdEventDbProxy", "Read success: " +mySDFileName);
+				Log.d("GtdEventDbProxy", "Read success: " +mySDFileName+" => "+res);
 			} catch (FileNotFoundException e) {
 				Log.e("GtdEventDbProxy"
 						, Environment.getExternalStorageDirectory().toString());
@@ -89,7 +90,7 @@ public class AppSettingDbProxy {
 				e.printStackTrace();
 			}
 		}
-		return str1;
+		return res;
 	}
 
 	/**

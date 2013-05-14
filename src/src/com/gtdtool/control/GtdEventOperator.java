@@ -8,6 +8,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import android.util.Log;
+
 import com.gtdtool.data.GtdEventDbProxy;
 import com.gtdtool.object.GtdEvent;
 
@@ -79,14 +81,22 @@ public class GtdEventOperator {
 		this.events_map.put(item.getId(), item);
 	}
 	
+	/**
+	 * @param item GtdEvent you want to delete
+	 */
+	public void deleteGtdEvent(GtdEvent item){
+		this.events.remove(item);
+		this.events_map.remove(item);
+	}
 
 	/**
-	 * TODO
+	 * @param postion GtdEvent at position you want to delete
 	 */
-	public void deleteGtdEvents(){
-		
+	public void deleteGtdEvent(int position){
+		GtdEvent ge = this.events.get(position);
+		this.events.remove(ge);
+		this.events_map.remove(ge);
 	}
-	
 
 	/**
 	 * TODO
@@ -110,7 +120,15 @@ public class GtdEventOperator {
 		ge = new GtdEvent();
 		ge.setName("3");
 		addGtdEvents(ge);
-		
+		Log.d(this.getClass().getName(), this.toString());
+	}
+
+	/* (non-Javadoc)
+	 * @see java.lang.Object#toString()
+	 */
+	@Override
+	public String toString() {
+		return "GtdEventOperator [events=" + events + "]";
 	}
 
 }
