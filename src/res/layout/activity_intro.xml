@@ -8,17 +8,13 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context=".IntroActivity" >
 
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="26dp"
-        android:text="Welcome to use GTD for Android"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textColor="#5566FF" />
-
+    <Gallery
+	    android:id="@+id/gallery"
+	    android:orientation="vertical"
+	    android:layout_width="wrap_content"  
+		android:layout_height="wrap_content"
+	/>
+    
     <ImageButton
         android:id="@+id/intro_goMain_imageButton"
         android:layout_width="wrap_content"
@@ -27,5 +23,15 @@
         android:layout_alignRight="@+id/textView1"
         android:layout_marginBottom="20dp"
         android:src="@drawable/ic_launcher" />
+
+    <TextView
+        android:id="@+id/textView1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:text="Welcome to use GTD for Android"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#5566FF" />
 
 </RelativeLayout>
