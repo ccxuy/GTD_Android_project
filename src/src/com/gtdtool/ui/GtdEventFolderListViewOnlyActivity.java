@@ -1,17 +1,16 @@
 package com.gtdtool.ui;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
+import android.app.ActionBar;
 import android.app.ListActivity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.TextView;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 
 import com.gtdtool.R;
 import com.gtdtool.control.MainControl;
@@ -48,7 +47,40 @@ public class GtdEventFolderListViewOnlyActivity extends ListActivity {
 				 new String[]{"name","status"},
 				 new int[]{R.id.gtdevent_title_textView,R.id.gtdevent_duration_textView},
 				 R.id.grabber));
-		
+		ActionBar actionbar=getActionBar();
+		actionbar.setDisplayHomeAsUpEnabled(true);
+		 
 	}
 
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// TODO Auto-generated method stub
+		MenuInflater inflater=getMenuInflater();
+		inflater.inflate(R.menu.evenaddmenu, menu);
+		
+		return super.onCreateOptionsMenu(menu);
+	}
+
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// TODO Auto-generated method stub
+		switch(item.getItemId()){
+		case R.id.add:
+			Intent intent=new Intent(this,AddEvent.class);
+			startActivity(intent);
+		}
+		return true;
+	}
+
+
+	 
+
+	
+
+	 
+	
+	
+	
 }

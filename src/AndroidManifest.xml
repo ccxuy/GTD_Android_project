@@ -67,6 +67,10 @@
             android:name="com.gtdtool.ui.ReviewActivity"
             android:label="@string/title_activity_review" >
         </activity>
+        <activity
+            android:name="com.gtdtool.ui.AddEvent"
+            android:label="@string/title_activity_add_event" >
+        </activity>
     </application>
 
 </manifest>
