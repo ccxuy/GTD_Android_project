@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import com.example.gtdtools.dummy.DummyContent.DummyItem;
+import com.gtdtool.data.GtdEventDbProxy;
 import com.gtdtool.object.GtdEvent;
 
 /**
@@ -47,23 +47,34 @@ public class GtdEventOperator {
 	}
 
 	/**
-	 * TODO
+	 * Load by GtdEventDbProxy
 	 */
 	public void doLoadGtdEvents(){
+		this.events = GtdEventDbProxy.loadAllGtdEventItem();
 		
 	}
 	
 	/**
-	 * TODO
+	 * Save by GtdEventDbProxy
 	 */
 	public void doSaveGtdEvents(){
-		
+		GtdEventDbProxy.saveAllGtdEventItem(this.events);
 	}
 	
 	/**
-	 * @param item
+	 * @param item GtdEvent
 	 */
 	public void addGtdEvents(GtdEvent item){
+		this.events.add(item);
+		this.events_map.put(item.getId(), item);
+	}
+	
+	/**
+	 * @param item description of todo event
+	 */
+	public void addGtdEvents(String eventTitle){
+		GtdEvent item = new GtdEvent();
+		item.setName(eventTitle);
 		this.events.add(item);
 		this.events_map.put(item.getId(), item);
 	}
