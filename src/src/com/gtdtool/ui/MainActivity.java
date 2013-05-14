@@ -6,6 +6,7 @@ import com.gtdtool.R;
 import android.os.Bundle;
 import android.app.Activity;
 import android.content.Intent;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -25,8 +26,9 @@ public class MainActivity extends Activity {
 		
 		 // TODO: Judge whether is first time to launch this application
 		 //     , if true launch introduction activity.
-		if(true == mainControl.isFirstTimeLaunch){
-		    mainControl.isFirstTimeLaunch = false;
+		if(true == MainControl.isFirstTimeLaunch){
+			Log.d("MainActivity", "First time launch");
+		    MainControl.isFirstTimeLaunch = false;
 			Intent intent;
 		    intent = new Intent(this, IntroActivity.class);
 		    startActivityForResult( intent, 0 );
@@ -86,6 +88,24 @@ public class MainActivity extends Activity {
 		    startActivityForResult( settingIntent, 3 );
 		}
 		return super.onOptionsItemSelected(item);
+	}
+
+	/* (non-Javadoc)
+	 * @see android.app.Activity#onResume()
+	 */
+	@Override
+	protected void onResume() {
+		super.onResume();
+//		MainControl.gtdEventsOp.doLoadGtdEvents();
+	}
+
+	/* (non-Javadoc)
+	 * @see android.app.Activity#onPause()
+	 */
+	@Override
+	protected void onPause() {
+		super.onPause();
+		MainControl.gtdEventsOp.doSaveGtdEvents();
 	}
 
 }
