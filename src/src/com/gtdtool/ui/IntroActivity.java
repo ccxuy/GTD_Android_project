@@ -19,7 +19,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
 
-import com.example.gtdtools.R;
+import com.gtdtool.R;
 
 public class IntroActivity extends Activity implements OnClickListener, OnPageChangeListener{
   /*private ViewFlipper viewFlipper=null;
