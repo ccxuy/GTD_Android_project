@@ -46,8 +46,8 @@ public class MainControl implements Serializable{
 			isFirstTimeLaunch = false;
 		}
 		//Load other things
-		MainControl.gtdEventsOp = new GtdEventOperator(
-				GtdEventDbProxy.loadAllGtdEventItem());
+		MainControl.gtdEventsOp = new GtdEventOperator();
+		gtdEventsOp.doLoadGtdEvents();
 	}
 
 	/**

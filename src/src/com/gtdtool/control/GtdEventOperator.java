@@ -31,10 +31,10 @@ public class GtdEventOperator {
 	 */
 	public GtdEventOperator() {
 		super();
-		this.events = new ArrayList<GtdEvent>();
 	}
 	
 	/**
+	 * @deprecated
 	 * @param events
 	 */
 	public GtdEventOperator(List<GtdEvent> events) {
