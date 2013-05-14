@@ -12,24 +12,34 @@
         android:id="@+id/textView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+        android:textSize="40sp"
+        android:textColor="#3333AA"
+        android:text="@string/welcome" />
 
     <ImageButton
         android:id="@+id/main_GtdEvents_imageButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="62dp"
+        android:layout_height="62dp"
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_marginBottom="25dp"
-        android:src="@drawable/ic_launcher" />
+        android:layout_marginLeft="25dp"
+        android:maxHeight="42dp"
+        android:maxWidth="42dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/todo" />
 
     <ImageButton
         android:id="@+id/main_review_imageButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="62dp"
+        android:layout_height="62dp"
         android:layout_alignParentRight="true"
         android:layout_alignTop="@+id/main_GtdEvents_imageButton"
-        android:layout_marginRight="22dp"
-        android:src="@drawable/ic_launcher" />
+        android:layout_marginBottom="25dp"
+        android:layout_marginRight="25dp"
+        android:maxHeight="42dp"
+        android:maxWidth="42dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/review" />
 
 </RelativeLayout>
