@@ -30,9 +30,9 @@ public class MainControl implements Serializable{
 		super();
 		loadControlObject();
 		
-//		if(true==isFirstTimeLaunch){
+		if(true==isFirstTimeLaunch){
 			gtdEventsOp.loadDefaultGtdEvents();
-//		}
+		}
 	}
 
 	/**

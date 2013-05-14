@@ -120,7 +120,6 @@ public class GtdEventOperator {
 		ge = new GtdEvent();
 		ge.setName("3");
 		addGtdEvents(ge);
-		Log.d(this.getClass().getName(), this.toString());
 	}
 
 	/* (non-Javadoc)

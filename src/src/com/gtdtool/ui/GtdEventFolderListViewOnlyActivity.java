@@ -7,6 +7,7 @@ import java.util.Map;
 
 import android.app.ListActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -34,6 +35,13 @@ public class GtdEventFolderListViewOnlyActivity extends ListActivity {
 		super.onCreate(icicle);
 		setContentView(R.layout.activity_gtdeventfolder_listview);
 		
+		loadGtdEventsAdapterToListView();
+	}
+
+	/**
+	 * 
+	 */
+	private void loadGtdEventsAdapterToListView() {
 		ArrayList<Map<String, Object>> items = new ArrayList<Map<String, Object>>();
 		for(GtdEvent ge:MainControl.gtdEventsOp.events){
 			HashMap<String, Object> item = new HashMap<String, Object>();
@@ -43,7 +51,8 @@ public class GtdEventFolderListViewOnlyActivity extends ListActivity {
 			
 			items.add(item);
 		}
-
+//		Log.d(this.getClass().getName(), "GtdEvents items: "+items.size());
+		
 		tlv=(DragNDropListView)getListView();
 //		adapter = new GtdEventsContentArrayAdapter<GtdEvent>(getApplication()
 //				,R.layout.gtdevent_item
@@ -74,6 +83,7 @@ public class GtdEventFolderListViewOnlyActivity extends ListActivity {
 		            }
 		            else if (event.getX() - historicX > DELTA)  
 		            {
+		            	Log.d(this.getClass().getName(), "Pre x: "+historicX+" after: "+historicX);
 		                FunctionDeleteRowWhenSlidingRight(
 		                		tlv.pointToPosition((int)event.getX(), (int)event.getY()));
 		                return true;
@@ -86,7 +96,9 @@ public class GtdEventFolderListViewOnlyActivity extends ListActivity {
 	}
 
 	protected void FunctionDeleteRowWhenSlidingRight(int postion) {
+		Log.d(this.getClass().getName(), "Deleting "+postion);
 		MainControl.gtdEventsOp.deleteGtdEvent(postion);
+		loadGtdEventsAdapterToListView();
 	}
 	
 //	protected int getPostionForItemByCoordinate(int x, int y) {

@@ -26,9 +26,9 @@ public class MainActivity extends Activity {
 		
 		 // TODO: Judge whether is first time to launch this application
 		 //     , if true launch introduction activity.
-		if(true == mainControl.isFirstTimeLaunch){
+		if(true == MainControl.isFirstTimeLaunch){
 			Log.d("MainActivity", "First time launch");
-		    mainControl.isFirstTimeLaunch = false;
+		    MainControl.isFirstTimeLaunch = false;
 			Intent intent;
 		    intent = new Intent(this, IntroActivity.class);
 		    startActivityForResult( intent, 0 );
@@ -96,7 +96,7 @@ public class MainActivity extends Activity {
 	@Override
 	protected void onResume() {
 		super.onResume();
-		MainControl.gtdEventsOp.doLoadGtdEvents();
+//		MainControl.gtdEventsOp.doLoadGtdEvents();
 	}
 
 	/* (non-Javadoc)
