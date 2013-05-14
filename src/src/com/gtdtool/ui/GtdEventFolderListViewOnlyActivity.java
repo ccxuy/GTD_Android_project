@@ -1,21 +1,19 @@
 package com.gtdtool.ui;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
 import android.app.ListActivity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
-import android.view.ViewGroup;
-import android.widget.AbsListView;
-import android.widget.ArrayAdapter;
-import android.widget.TextView;
 
 import com.gtdtool.R;
 import com.gtdtool.control.MainControl;
@@ -100,9 +98,35 @@ public class GtdEventFolderListViewOnlyActivity extends ListActivity {
 		MainControl.gtdEventsOp.deleteGtdEvent(postion);
 		loadGtdEventsAdapterToListView();
 	}
+
+	@Override
+	public boolean onCreateOptionsMenu(Menu menu) {
+		// TODO Auto-generated method stub
+		MenuInflater inflater=getMenuInflater();
+		inflater.inflate(R.menu.evenaddmenu, menu);
+		return super.onCreateOptionsMenu(menu);
+	}
+
+	@Override
+	public boolean onOptionsItemSelected(MenuItem item) {
+		// TODO Auto-generated method stub
+		Intent intent=new Intent(this,AddEvent.class);
+		startActivityForResult(intent,0);
+		
+		return super.onOptionsItemSelected(item);
+	}
+
+	@Override
+	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+		// TODO Auto-generated method stub
+		loadGtdEventsAdapterToListView();
+		super.onActivityResult(requestCode, resultCode, data);
+	}
 	
 //	protected int getPostionForItemByCoordinate(int x, int y) {
 //		return tlv.pointToPosition(x, y);
 //	}
 
+	
+	
 }

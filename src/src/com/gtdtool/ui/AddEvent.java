@@ -32,6 +32,12 @@ public class AddEvent extends Activity {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_add_event);
 		iniComponent();
+		typeAd=new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,types);
+		statusAd=new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,statu);
+		typeAd.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		statusAd.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+		type.setAdapter(typeAd);
+		status.setAdapter(statusAd);
 		type.setOnItemSelectedListener(new Spinner.OnItemSelectedListener(){
 
 			@Override
@@ -99,11 +105,7 @@ public class AddEvent extends Activity {
 		type=(Spinner) findViewById(R.id.type);
         status=(Spinner) findViewById(R.id.status);
 		name=(EditText) findViewById(R.id.name);
-		typeAd=new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,types);
-		statusAd=new ArrayAdapter<String>(this,android.R.layout.simple_spinner_item,statu);
-		typeAd.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-		statusAd.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
+		
 	}
 	/*this.name = "No Name";
 	this.eventType = EventType.Simple;
