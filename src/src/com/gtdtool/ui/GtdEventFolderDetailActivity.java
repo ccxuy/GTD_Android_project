@@ -1,8 +1,6 @@
 package com.gtdtool.ui;
 
-import com.example.gtdtools.R;
-import com.example.gtdtools.R.id;
-import com.example.gtdtools.R.layout;
+import com.gtdtool.R;
 
 import android.content.Intent;
 import android.os.Bundle;

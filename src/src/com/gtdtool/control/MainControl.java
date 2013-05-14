@@ -3,18 +3,25 @@
  */
 package com.gtdtool.control;
 
+import java.io.Serializable;
+
 import com.gtdtool.data.GtdEventDbProxy;
 
 /**
  * @author Andrew
  *
  */
-public class MainControl {
-	private AppSetting setting;
+public class MainControl implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -2154865372754177778L;
+	public static final String SER_KEY = "com.gtdtool.maincontrol";
+
+	public static AppSetting setting;
+	public static GtdEventOperator gtdEventsOp;
 	
-	protected GtdEventOperator gtdEventsOp;
-	
-	public boolean isFirstTimeLaunch = true;
+	public static boolean isFirstTimeLaunch = true;
 
 	/**
 	 * Preferred choice
@@ -22,6 +29,10 @@ public class MainControl {
 	public MainControl() {
 		super();
 		loadControlObject();
+		
+		if(true==isFirstTimeLaunch){
+			gtdEventsOp.loadDefaultGtdEvents();
+		}
 	}
 
 	/**
@@ -29,26 +40,29 @@ public class MainControl {
 	 * if any new things added, initialize here.
 	 */
 	private void loadControlObject() {
-		//If no setting found, means first time to lauch
-		if(true==this.setting.loadAppSetting()){
+		//If no setting found, means first time to launch
+		MainControl.setting = new AppSetting();
+		if(true==MainControl.setting.loadAppSetting()){
 			isFirstTimeLaunch = false;
 		}
 		//Load other things
-		this.gtdEventsOp = new GtdEventOperator(
+		MainControl.gtdEventsOp = new GtdEventOperator(
 				GtdEventDbProxy.loadAllGtdEventItem());
 	}
 
 	/**
+	 * @deprecated
 	 * @param setting
 	 * @param gtdEventsOp
 	 */
 	public MainControl(AppSetting setting, GtdEventOperator gtdEventsOp) {
 		super();
-		this.setting = setting;
-		this.gtdEventsOp = gtdEventsOp;
+		MainControl.setting = setting;
+		MainControl.gtdEventsOp = gtdEventsOp;
 	}
 
 	/**
+	 * @deprecated
 	 * @return the setting
 	 */
 	public AppSetting getSetting() {
@@ -56,6 +70,7 @@ public class MainControl {
 	}
 
 	/**
+	 * @deprecated
 	 * @return the gtdEventsOp
 	 */
 	public GtdEventOperator getGtdEventsOp() {

@@ -1,6 +1,6 @@
-package com.example.gtdtools;
+package com.gtdtool.ui;
 
-import com.gtdtool.ui.GtdEventFolderListActivity;
+import com.gtdtool.R;
 
 import android.os.Bundle;
 import android.app.Activity;

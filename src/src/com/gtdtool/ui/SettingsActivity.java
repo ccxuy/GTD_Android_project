@@ -19,9 +19,7 @@ import android.text.TextUtils;
 
 import java.util.List;
 
-import com.example.gtdtools.R;
-import com.example.gtdtools.R.string;
-import com.example.gtdtools.R.xml;
+import com.gtdtool.R;
 
 /**
  * A {@link PreferenceActivity} that presents a set of application settings. On

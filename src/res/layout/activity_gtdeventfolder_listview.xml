@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.terlici.dragndroplist.DragNDropListView xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@id/android:list"
+    android:name="com.gtdtool.ui.GtdEventFolderListView"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"/>

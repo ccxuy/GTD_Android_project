@@ -1,0 +1,2 @@
+1. Import project in /imports and /src to eclipse.
+2. Set /imports project as library for project in /src
