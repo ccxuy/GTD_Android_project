@@ -10,7 +10,7 @@
 
 # generated files
 src/bin/
-#src/gen/
+src/gen/
 
 # Local configuration file (sdk path, etc)
 src/local.properties
